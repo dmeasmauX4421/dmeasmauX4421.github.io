@@ -171,14 +171,14 @@
       transform: scale(1.02);
     }
     
-    /* НОВЫЙ СТИЛЬ: Блок с контактами для получения бонуса */
+    /* Блок с контактами для получения бонуса */
     .contact-bonus-section {
         background: #fff;
         border-radius: var(--radius);
         padding: 30px;
         margin-bottom: 60px;
         text-align: center;
-        border: 2px solid var(--gold); /* Золотая рамка для привлечения внимания */
+        border: 2px solid var(--gold);
         box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
     }
     .contact-bonus-section h2 {
@@ -213,8 +213,6 @@
     .telegram-link:hover {
         background: #0077b3;
     }
-    /* КОНЕЦ НОВОГО СТИЛЯ */
-
     /* Секция отзывов */
     .reviews-section { margin-bottom: 60px; }
     .reviews-grid {
@@ -253,7 +251,6 @@
       margin-bottom: 12px; border: 1px solid #e2e8f0;
     }
     summary { font-weight: 600; cursor: pointer; list-style: none; position: relative; padding-right: 20px; }
-    summary::-webkit-details-marker { display: none; }
     summary::after {
       content: "+"; position: absolute; right: 0; font-weight: bold; color: var(--primary);
     }
@@ -265,43 +262,11 @@
       border-top: 1px solid #e2e8f0; padding: 40px 0;
       text-align: center; color: var(--text-muted); font-size: 14px;
     }
-    
-    /* НОВЫЙ СТИЛЬ: Плавающий виджет Telegram */
-    .floating-chat-btn {
-        position: fixed;
-        bottom: 30px;
-        right: 30px;
-        background: #0088CC; /* Цвет Telegram */
-        color: white;
-        width: 60px;
-        height: 60px;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-decoration: none;
-        font-size: 28px; /* Размер иконки */
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        z-index: 1000;
-        transition: transform 0.3s ease;
-    }
-
-    .floating-chat-btn:hover {
-        transform: scale(1.1);
-    }
-
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 28px; }
       .card { padding: 20px; }
       .contact-links { flex-direction: column; }
-      .floating-chat-btn {
-        bottom: 20px;
-        right: 15px;
-        width: 50px;
-        height: 50px;
-        font-size: 24px;
-      }
     }
   </style>
 
@@ -386,7 +351,7 @@
             <span>Бесплатное обслуживание навсегда</span>
           </li>
         </ul>
-        <a href="https://www.tbank.ru/baf/39EZTmd8HnD" target="_blank" rel="noopener sponsored" class="btn btn-primary">
+        <a href="https://ВАША_РЕФ_ССЫЛКА_ТИНЬКОФФ" target="_blank" rel="noopener sponsored" class="btn btn-primary">
           Забрать 1500 ₽
         </a>
       </article>
@@ -414,7 +379,7 @@
             <span>Суперкэшбэк до 100% каждый месяц</span>
           </li>
         </ul>
-        <a href="https://www.tbank.ru/baf/39EZTmd8HnD" target="_blank" rel="noopener sponsored" class="btn btn-primary">
+        <a href="https://ВАША_РЕФ_ССЫЛКА_АЛЬФА" target="_blank" rel="noopener sponsored" class="btn btn-primary">
           Забрать 500 ₽
         </a>
       </article>
@@ -442,7 +407,7 @@
             <span>Снятие наличных без % в любых банкоматах</span>
           </li>
         </ul>
-        <a href="https://www.tbank.ru/baf/39EZTmd8HnD" target="_blank" rel="noopener sponsored" class="btn btn-primary">
+        <a href="https://ВАША_РЕФ_ССЫЛКА_ВТБ" target="_blank" rel="noopener sponsored" class="btn btn-primary">
           Забрать 1000 ₽
         </a>
       </article>
@@ -452,16 +417,16 @@
     <section class="contact-bonus-section">
         <h2>✅ **Важно: Как получить вознаграждение?**</h2>
         <p style="font-size: 16px; color: var(--text-main); max-width: 700px; margin: 0 auto 20px;">
-            После оформления карты и выполнения условия (покупки), **обязательно** свяжитесь с нами, чтобы мы могли **подтвердить ваш бонус** и выплатить часть реферальной комиссии.
+            После оформления карты и выполнения условия (покупки), **обязательно** свяжитесь с нами для подтверждения бонуса.
         </p>
         <div class="contact-links">
+            <a href="javascript:void(Tawk_API.toggle())" class="contact-link-item">
+                <svg style="margin-right: 5px; vertical-align: middle;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                Написать в поддержку **(Live Chat)**
+            </a>
             <a href="https://t.me/Wertiih" target="_blank" class="contact-link-item telegram-link">
                 <svg style="margin-right: 5px; vertical-align: middle;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 3L4 9.38 10.38 12 4 18.62 20 22 20 3z" stroke="none"></path><path d="M21 4L2 11.5L9.5 14L12 21L21 4z"/></svg>
-                Написать в Telegram: **@Wertiih**
-            </a>
-            <a href="mailto:support@ВАШ_САЙТ.com" class="contact-link-item">
-                <svg style="margin-right: 5px; vertical-align: middle;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
-                Написать в поддержку
+                Связаться через Telegram **@Wertiih**
             </a>
         </div>
     </section>
@@ -522,7 +487,7 @@
         <div class="step-item">
           <div class="step-icon">4</div>
           <h4>Сделай покупку и свяжись с нами</h4>
-          <p>Купи в магазине что угодно. **ОБЯЗАТЕЛЬНО** напиши нам в Telegram, чтобы получить свою выплату!</p>
+          <p>Купи в магазине что угодно. Затем напиши нам в **Live Chat** или Telegram, чтобы получить свою выплату!</p>
         </div>
       </div>
     </section>
@@ -569,9 +534,16 @@
     });
   </script>
   
-  <a href="https://t.me/Wertiih" target="_blank" class="floating-chat-btn" aria-label="Связаться с поддержкой через Telegram">
-      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill: currentColor;"><path d="M20 3L4 9.38 10.38 12 4 18.62 20 22 20 3z" stroke="none"></path><path d="M21 4L2 11.5L9.5 14L12 21L21 4z"/></svg>
-  </a>
-
-</body>
+  <script type="text/javascript">
+  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+  (function(){
+  var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+  s1.async=true;
+  s1.src='https://embed.tawk.to/6925cf5508d0cd1961dee9c9/1jatr3q58';
+  s1.charset='UTF-8';
+  s1.setAttribute('crossorigin','*');
+  s0.parentNode.insertBefore(s1,s0);
+  })();
+  </script>
+  </body>
 </html>
