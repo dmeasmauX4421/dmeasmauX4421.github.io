@@ -50,7 +50,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* Контейнер */
     .container {
       max-width: var(--container);
       margin: 0 auto;
@@ -266,11 +265,43 @@
       border-top: 1px solid #e2e8f0; padding: 40px 0;
       text-align: center; color: var(--text-muted); font-size: 14px;
     }
+    
+    /* НОВЫЙ СТИЛЬ: Плавающий виджет Telegram */
+    .floating-chat-btn {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: #0088CC; /* Цвет Telegram */
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-decoration: none;
+        font-size: 28px; /* Размер иконки */
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        z-index: 1000;
+        transition: transform 0.3s ease;
+    }
+
+    .floating-chat-btn:hover {
+        transform: scale(1.1);
+    }
+
 
     @media (max-width: 600px) {
       .hero h1 { font-size: 28px; }
       .card { padding: 20px; }
       .contact-links { flex-direction: column; }
+      .floating-chat-btn {
+        bottom: 20px;
+        right: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+      }
     }
   </style>
 
@@ -355,7 +386,7 @@
             <span>Бесплатное обслуживание навсегда</span>
           </li>
         </ul>
-        <a href="https://ВАША_РЕФ_ССЫЛКА_ТИНЬКОФФ" target="_blank" rel="noopener sponsored" class="btn btn-primary">
+        <a href="https://www.tbank.ru/baf/39EZTmd8HnD" target="_blank" rel="noopener sponsored" class="btn btn-primary">
           Забрать 1500 ₽
         </a>
       </article>
@@ -383,7 +414,7 @@
             <span>Суперкэшбэк до 100% каждый месяц</span>
           </li>
         </ul>
-        <a href="https://ВАША_РЕФ_ССЫЛКА_АЛЬФА" target="_blank" rel="noopener sponsored" class="btn btn-primary">
+        <a href="https://www.tbank.ru/baf/39EZTmd8HnD" target="_blank" rel="noopener sponsored" class="btn btn-primary">
           Забрать 500 ₽
         </a>
       </article>
@@ -411,7 +442,7 @@
             <span>Снятие наличных без % в любых банкоматах</span>
           </li>
         </ul>
-        <a href="https://ВАША_РЕФ_ССЫЛКА_ВТБ" target="_blank" rel="noopener sponsored" class="btn btn-primary">
+        <a href="https://www.tbank.ru/baf/39EZTmd8HnD" target="_blank" rel="noopener sponsored" class="btn btn-primary">
           Забрать 1000 ₽
         </a>
       </article>
@@ -425,7 +456,7 @@
         </p>
         <div class="contact-links">
             <a href="https://t.me/Wertiih" target="_blank" class="contact-link-item telegram-link">
-                <svg style="margin-right: 5px; vertical-align: middle;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.41C22 8.41 15 4 12 4s-10 4.41-10 4.41L12 20z"></path><line x1="12" y1="4" x2="12" y2="20"></line></svg>
+                <svg style="margin-right: 5px; vertical-align: middle;" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 3L4 9.38 10.38 12 4 18.62 20 22 20 3z" stroke="none"></path><path d="M21 4L2 11.5L9.5 14L12 21L21 4z"/></svg>
                 Написать в Telegram: **@Wertiih**
             </a>
             <a href="mailto:support@ВАШ_САЙТ.com" class="contact-link-item">
@@ -537,6 +568,10 @@
       }).observe(el);
     });
   </script>
+  
+  <a href="https://t.me/Wertiih" target="_blank" class="floating-chat-btn" aria-label="Связаться с поддержкой через Telegram">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="fill: currentColor;"><path d="M20 3L4 9.38 10.38 12 4 18.62 20 22 20 3z" stroke="none"></path><path d="M21 4L2 11.5L9.5 14L12 21L21 4z"/></svg>
+  </a>
 
 </body>
 </html>
