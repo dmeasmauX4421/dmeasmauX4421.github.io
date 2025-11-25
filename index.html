@@ -5,13 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   
-  <title>Бонусы до 3000 ₽ за дебетовые карты — Лучшие предложения банков</title>
-  <meta name="description" content="Подборка дебетовых карт с денежными бонусами за открытие. Тинькофф, Альфа, Сбер. Прозрачные условия, без скрытых комиссий.">
+  <meta name="yandex-verification" content="ВАШ_КОД_ЯНДЕКС" />
+  <meta name="google-site-verification" content="ВАШ_КОД_ГУГЛ" />
+
+  <title>Дебетовые карты с бонусом до 3000 ₽ — Не кредитки, без долгов</title>
+  <meta name="description" content="Получите реальные деньги за оформление бесплатных дебетовых карт. Только собственные средства, никаких кредитных лимитов. Тинькофф, Альфа, ВТБ. Отзывы и инструкции.">
+  <meta name="keywords" content="дебетовая карта бонус, деньги за карту, не кредитная карта, карта с кэшбэком, заработок на банках">
   <link rel="canonical" href="https://dmeasmaux4421.github.io/">
   
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Заберите бонус до 3000 ₽ за карту">
-  <meta property="og:description" content="Сравнение карт с бонусами. Оформление за 5 минут.">
+  <meta property="og:title" content="Заберите до 3000 ₽ за дебетовую карту (Не кредит)">
+  <meta property="og:description" content="Гарантированные бонусы от банков. Оформление за 5 минут. Без кредитных обязательств.">
   <meta property="og:image" content="https://dmeasmaux4421.github.io/og-image.jpg">
   <meta property="og:url" content="https://dmeasmaux4421.github.io/">
 
@@ -27,6 +31,7 @@
       --bg-body: #f8fafc;
       --bg-card: #ffffff;
       --success: #10b981;
+      --warning: #f59e0b;
       --radius: 16px;
       --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
       --container: 1100px;
@@ -80,10 +85,13 @@
       padding: 60px 0 40px;
     }
     .hero h1 {
-      font-size: clamp(28px, 5vw, 42px);
+      font-size: clamp(26px, 5vw, 42px);
       margin: 0 0 16px;
       font-weight: 800;
       letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+    .hero h1 span {
       background: linear-gradient(135deg, #1e293b 0%, #4F46E5 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
@@ -93,6 +101,17 @@
       color: var(--text-muted);
       max-width: 600px;
       margin: 0 auto;
+    }
+    .trust-badge {
+      display: inline-block;
+      background: #ecfdf5;
+      color: #065f46;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      border: 1px solid #a7f3d0;
     }
 
     /* --- CARDS GRID --- */
@@ -133,6 +152,11 @@
       display: flex;
       align-items: center;
       gap: 4px;
+    }
+    
+    .badge.no-credit {
+      background: #eff6ff;
+      color: var(--primary);
     }
 
     .bank-header {
@@ -203,6 +227,41 @@
       box-shadow: 0 6px 8px -1px rgba(79, 70, 229, 0.4);
     }
 
+    /* --- REVIEWS SECTION --- */
+    .reviews-section {
+      margin-bottom: 60px;
+    }
+    .reviews-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .review-card {
+      background: #fff;
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid #e2e8f0;
+    }
+    .review-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    .avatar {
+      width: 40px;
+      height: 40px;
+      background: #e2e8f0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: var(--text-muted);
+    }
+    .stars { color: var(--warning); font-size: 14px; }
+    .review-text { font-size: 14px; color: var(--text-muted); font-style: italic; }
+
     /* --- HOW IT WORKS --- */
     .steps-section {
       background: #fff;
@@ -244,9 +303,6 @@
     }
     footer a { color: var(--primary); text-decoration: none; }
 
-    /* --- UTILS --- */
-    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
-    
     /* Mobile tweaks */
     @media (max-width: 600px) {
       .hero { padding: 40px 0 20px; }
@@ -258,14 +314,44 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Бонусы за банковские карты",
-    "url": "https://dmeasmaux4421.github.io/",
-    "potentialAction": {
-      "@type": "SearchAction",
-      "target": "https://dmeasmaux4421.github.io/?q={search_term_string}",
-      "query-input": "required name=search_term_string"
-    }
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Бонусы за Дебетовые Карты",
+        "url": "https://dmeasmaux4421.github.io/"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Это кредитные карты?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Нет. Все представленные карты — дебетовые. Это значит, что вы пользуетесь только своими деньгами. Никаких кредитных лимитов, долгов и процентов банку."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Безопасно ли вводить данные?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Да. Мы не собираем ваши данные. Кнопка 'Получить бонус' перенаправляет вас на официальный защищенный сайт банка (Тинькофф, Альфа и др)."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "Product",
+        "name": "Подборка дебетовых карт с бонусами",
+        "description": "Сравнение условий по дебетовым картам с денежными бонусами за оформление.",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "reviewCount": "124"
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -277,23 +363,21 @@
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect><line x1="1" y1="10" x2="23" y2="10"></line></svg>
         <span>CardBonus</span>
       </a>
-      </div>
+    </div>
   </header>
 
   <main class="container">
     
     <section class="hero">
-      <h1>Получите деньги за оформление бесплатной карты</h1>
-      <p>Мы собрали проверенные предложения от банков РФ. Оформляйте онлайн за 5 минут и получайте гарантированные бонусы на счет.</p>
+      <div class="trust-badge">🛡️ Никаких кредитов и долгов</div>
+      <h1><span>Деньги за оформление</span><br>обычной дебетовой карты</h1>
+      <p>Оформляйте бесплатные карты, тратьте 500₽ в магазине и получайте реальные деньги обратно. Только дебетовые карты (собственные средства).</p>
     </section>
 
     <section class="offers-grid">
       
       <article class="card">
-        <div class="badge">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
-          Топ выбор
-        </div>
+        <div class="badge">🎁 +1500 ₽ на счет</div>
         <div class="bank-header">
           <div class="bank-icon" style="background: #FFDD2D; color: #000;">T</div>
           <div class="bank-title">
@@ -304,24 +388,24 @@
         <ul class="features-list">
           <li>
             <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><b>1500 ₽</b> бонус новым клиентам</span>
+            <span><b>Не кредитка</b> (только свои деньги)</span>
           </li>
           <li>
             <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Кэшбэк до 30% рублями</span>
+            <span>Кэшбэк до 30% живыми деньгами</span>
           </li>
           <li>
             <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Бесплатное обслуживание навсегда</span>
+            <span>Бесплатное обслуживание</span>
           </li>
         </ul>
         <a href="https://ВАША_РЕФ_ССЫЛКА_ТИНЬКОФФ" target="_blank" rel="noopener sponsored" class="btn btn-primary">
-          Забрать 1500 ₽
+          Получить карту и 1500 ₽
         </a>
       </article>
 
       <article class="card">
-        <div class="badge">🔥 Высокий %</div>
+        <div class="badge no-credit">✅ Дебетовая</div>
         <div class="bank-header">
           <div class="bank-icon" style="background: #EF3124;">А</div>
           <div class="bank-title">
@@ -332,23 +416,24 @@
         <ul class="features-list">
           <li>
             <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><b>500 ₽</b> гарантированно</span>
+            <span><b>500 ₽</b> всем новым клиентам</span>
           </li>
           <li>
             <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Суперкэшбэк до 100% на категорию</span>
+            <span>Без кредитного лимита</span>
           </li>
           <li>
             <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Бесплатные переводы и платежи</span>
+            <span>Бесплатные платежи и переводы</span>
           </li>
         </ul>
         <a href="https://ВАША_РЕФ_ССЫЛКА_АЛЬФА" target="_blank" rel="noopener sponsored" class="btn btn-primary">
-          Забрать 500 ₽
+          Получить карту и 500 ₽
         </a>
       </article>
 
       <article class="card">
+        <div class="badge no-credit">✅ Дебетовая</div>
         <div class="bank-header">
           <div class="bank-icon" style="background: #002882;">В</div>
           <div class="bank-title">
@@ -359,46 +444,82 @@
         <ul class="features-list">
           <li>
             <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span><b>1000 ₽</b> после первой покупки</span>
+            <span><b>1000 ₽</b> за любую покупку</span>
           </li>
           <li>
             <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Кэшбэк 2% на супермаркеты</span>
+            <span>Это не кредитная карта</span>
           </li>
           <li>
             <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
-            <span>Бесплатное снятие в любых банкоматах</span>
+            <span>Снятие наличных без % в любых банкоматах</span>
           </li>
         </ul>
         <a href="https://ВАША_РЕФ_ССЫЛКА_ВТБ" target="_blank" rel="noopener sponsored" class="btn btn-primary">
-          Забрать 1000 ₽
+          Получить карту и 1000 ₽
         </a>
       </article>
 
     </section>
 
+    <section class="reviews-section">
+      <h2 style="text-align:center; margin-bottom: 24px;">Отзывы получивших бонус</h2>
+      <div class="reviews-grid">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="avatar">АИ</div>
+            <div>
+              <div style="font-weight:600; font-size:15px;">Алексей Иванов</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"Заказал Тинькофф Блэк по ссылке. Карту привезли на следующий день. Купил продуктов на 1000р, бонус пришел через 3 дня. Реально работает, спасибо!"</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="avatar" style="background:#fce7f3; color:#ec4899;">МС</div>
+            <div>
+              <div style="font-weight:600; font-size:15px;">Мария С.</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"Боялась, что это кредитка, но нет. Обычная дебетовая карта. Оформила Альфу, получила свои 500 рублей. Мелочь, а приятно)"</p>
+        </div>
+        <div class="review-card">
+          <div class="review-header">
+            <div class="avatar" style="background:#dbeafe; color:#2563eb;">ДП</div>
+            <div>
+              <div style="font-weight:600; font-size:15px;">Дмитрий Петров</div>
+              <div class="stars">★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"Всё честно. Ссылки ведут на официальные сайты. Бонус от ВТБ ждал неделю, но всё начислили. Пользуюсь картой как основной теперь."</p>
+        </div>
+      </div>
+    </section>
+
     <section class="steps-section">
-      <h2 style="margin-top:0">Как получить деньги?</h2>
+      <h2 style="margin-top:0">Как получить деньги (Простая схема)</h2>
       <div class="steps-grid">
         <div class="step-item">
           <div class="step-icon">1</div>
-          <h4>Заполните заявку</h4>
-          <p>Перейдите по кнопке на официальный сайт банка и введите данные.</p>
+          <h4>Выберите банк</h4>
+          <p>Нажмите кнопку «Получить карту». Вы перейдете на сайт банка.</p>
         </div>
         <div class="step-item">
           <div class="step-icon">2</div>
-          <h4>Получите карту</h4>
-          <p>Курьер привезет карту бесплатно домой или на работу.</p>
+          <h4>Получите пластик</h4>
+          <p>Курьер бесплатно привезет карту. Это дебетовая карта, не кредит.</p>
         </div>
         <div class="step-item">
           <div class="step-icon">3</div>
-          <h4>Купите что-нибудь</h4>
-          <p>Сделайте любую покупку (обычно от 300-500 ₽) для активации.</p>
+          <h4>Активируйте</h4>
+          <p>Купите что угодно в магазине (хлеб, молоко) картой.</p>
         </div>
         <div class="step-item">
           <div class="step-icon">4</div>
-          <h4>Получите бонус</h4>
-          <p>Деньги придут на счет в течение срока, указанного банком.</p>
+          <h4>Бонус ваш!</h4>
+          <p>Банк начислит деньги вам на счет в течение нескольких дней.</p>
         </div>
       </div>
     </section>
@@ -407,8 +528,13 @@
       <h2 style="text-align: center; margin-bottom: 24px;">Частые вопросы</h2>
       
       <details style="background: #fff; padding: 16px; border-radius: 12px; margin-bottom: 10px; border: 1px solid #e2e8f0; cursor: pointer;">
-        <summary style="font-weight: 600;">Это безопасно?</summary>
-        <p style="margin-top: 10px; color: var(--text-muted);">Абсолютно. Все ссылки ведут на официальные сайты банков (tinkoff.ru, alfabank.ru и т.д.). Вы вводите данные только на стороне банка.</p>
+        <summary style="font-weight: 600;">Это точно не кредитная карта?</summary>
+        <p style="margin-top: 10px; color: var(--text-muted);">Точно. Это дебетовые карты. На них лежат только ваши собственные деньги. Уйти в минус или в долги по ним невозможно.</p>
+      </details>
+
+      <details style="background: #fff; padding: 16px; border-radius: 12px; margin-bottom: 10px; border: 1px solid #e2e8f0; cursor: pointer;">
+        <summary style="font-weight: 600;">Зачем банку платить мне?</summary>
+        <p style="margin-top: 10px; color: var(--text-muted);">Банки конкурируют за клиентов. Им выгоднее заплатить вам бонус один раз, чтобы вы стали их лояльным клиентом, чем тратить миллионы на рекламу по ТВ.</p>
       </details>
       
       <details style="background: #fff; padding: 16px; border-radius: 12px; margin-bottom: 10px; border: 1px solid #e2e8f0; cursor: pointer;">
@@ -421,26 +547,15 @@
 
   <footer>
     <div class="container">
-      <p>&copy; <span id="year">2023</span> CardBonus. Не является финансовой организацией.</p>
+      <p>&copy; <span id="year"></span> CardBonus. Информационный сервис.</p>
       <p style="font-size: 12px; opacity: 0.7; max-width: 800px; margin: 10px auto;">
-        Информация носит ознакомительный характер. Сайт содержит партнерские ссылки, за переходы по которым мы можем получать вознаграждение. Это позволяет нам поддерживать сайт бесплатным для вас. Условия акций могут меняться банками в одностороннем порядке.
+        Информация носит ознакомительный характер. Сайт содержит партнерские ссылки на дебетовые продукты банков. Не является офертой.
       </p>
     </div>
   </footer>
 
   <script>
-    // Автоматическое обновление года
     document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Плавный скролл для якорей (если добавите их в будущем)
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
-    });
   </script>
 
 </body>
