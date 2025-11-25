@@ -3,250 +3,386 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Получи 1500₽ за регистрацию в банке</title>
+    <title>Получи 1500₽ за карту в банке</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        :root {
+            --primary: #6366f1;
+            --secondary: #8b5cf6;
+            --success: #10b981;
+            --warning: #f59e0b;
+            --danger: #ef4444;
+            --dark: #1f2937;
+            --light: #f8fafc;
         }
         
         body {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             padding: 20px;
+            color: var(--dark);
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1200px;
             margin: 0 auto;
             background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
             overflow: hidden;
         }
         
         .header {
-            background: #2c3e50;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(-20px, -20px) rotate(360deg); }
         }
         
         .bonus-badge {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            background: #e74c3c;
+            position: relative;
+            display: inline-block;
+            background: var(--warning);
             color: white;
-            padding: 10px 15px;
-            border-radius: 25px;
+            padding: 12px 25px;
+            border-radius: 50px;
             font-weight: bold;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4);
             animation: pulse 2s infinite;
+            z-index: 2;
         }
         
         @keyframes pulse {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); }
-            100% { transform: scale(1); }
+            0% { transform: scale(1); box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4); }
+            50% { transform: scale(1.05); box-shadow: 0 8px 20px rgba(245, 158, 11, 0.6); }
+            100% { transform: scale(1); box-shadow: 0 5px 15px rgba(245, 158, 11, 0.4); }
         }
         
         .header h1 {
-            font-size: 2.2em;
-            margin-bottom: 10px;
+            font-size: 2.5em;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 2;
         }
         
         .header p {
             opacity: 0.9;
-            font-size: 1.1em;
+            font-size: 1.2em;
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
-        .banks-list {
+        .card-types {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .card-type {
+            background: rgba(255,255,255,0.2);
+            padding: 15px 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .tabs {
+            display: flex;
+            background: var(--light);
+            border-bottom: 1px solid #e5e7eb;
+        }
+        
+        .tab {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+        }
+        
+        .tab.active {
+            border-bottom: 3px solid var(--primary);
+            color: var(--primary);
+            background: white;
+        }
+        
+        .tab:hover {
+            background: white;
+        }
+        
+        .tab-content {
+            display: none;
             padding: 30px;
         }
         
+        .tab-content.active {
+            display: block;
+        }
+        
+        .banks-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+        }
+        
         .bank-card {
-            background: #f8f9fa;
-            border-radius: 10px;
+            background: white;
+            border-radius: 15px;
             padding: 25px;
-            margin-bottom: 20px;
-            border-left: 5px solid #3498db;
-            transition: transform 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e5e7eb;
+            transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
+        }
+        
+        .bank-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
         }
         
         .bank-card:hover {
-            transform: translateX(5px);
-        }
-        
-        .bank-card.tinkoff {
-            border-left-color: #ffdd2d;
-        }
-        
-        .bank-card.sber {
-            border-left-color: #21a038;
-        }
-        
-        .bank-card.alfa {
-            border-left-color: #ef3124;
-        }
-        
-        .bank-card.vtb {
-            border-left-color: #1946a0;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
         }
         
         .bank-reward {
             position: absolute;
             top: 20px;
             right: 20px;
-            background: #27ae60;
+            background: var(--success);
             color: white;
             padding: 8px 15px;
             border-radius: 20px;
             font-weight: bold;
-            font-size: 1em;
+            font-size: 0.9em;
+            display: flex;
+            align-items: center;
+            gap: 5px;
         }
         
         .bank-header {
             display: flex;
             align-items: center;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
         
         .bank-logo {
-            width: 50px;
-            height: 50px;
-            background: #e9ecef;
-            border-radius: 10px;
+            width: 60px;
+            height: 60px;
+            background: var(--light);
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             margin-right: 15px;
-            font-size: 0.8em;
-            text-align: center;
+            font-size: 1.2em;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         
         .bank-name {
-            font-size: 1.4em;
+            font-size: 1.5em;
             font-weight: bold;
-            color: #2c3e50;
+            color: var(--dark);
+        }
+        
+        .bank-type {
+            color: var(--primary);
+            font-weight: 600;
+            font-size: 0.9em;
+            margin-top: 5px;
         }
         
         .bank-description {
-            color: #666;
+            color: #6b7280;
             margin-bottom: 20px;
-            line-height: 1.5;
+            line-height: 1.6;
         }
         
         .bank-features {
             display: flex;
-            gap: 15px;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 25px;
         }
         
         .feature {
-            background: white;
-            padding: 8px 15px;
-            border-radius: 20px;
-            font-size: 0.9em;
-            border: 1px solid #e9ecef;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 0;
+        }
+        
+        .feature i {
+            color: var(--success);
+            width: 20px;
         }
         
         .referral-button {
-            background: linear-gradient(135deg, #3498db, #2980b9);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
             border: none;
             padding: 15px 30px;
-            border-radius: 8px;
+            border-radius: 12px;
             font-size: 1.1em;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
         }
         
         .referral-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+            box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+        }
+        
+        .referral-button.secondary {
+            background: linear-gradient(135deg, var(--success), #059669);
         }
         
         .how-it-works {
-            background: #f8f9fa;
-            padding: 30px;
-            border-top: 1px solid #e9ecef;
+            background: var(--light);
+            padding: 50px 30px;
+            border-top: 1px solid #e5e7eb;
         }
         
         .how-it-works h2 {
             text-align: center;
-            margin-bottom: 25px;
-            color: #2c3e50;
+            margin-bottom: 40px;
+            color: var(--dark);
+            font-size: 2em;
         }
         
         .steps {
-            display: flex;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
         }
         
         .step {
-            flex: 1;
-            min-width: 150px;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .step:hover {
+            transform: translateY(-5px);
         }
         
         .step-number {
-            background: #3498db;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
             color: white;
-            width: 40px;
-            height: 40px;
+            width: 60px;
+            height: 60px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 15px;
+            margin: 0 auto 20px;
             font-weight: bold;
+            font-size: 1.5em;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
         }
         
         .footer {
             text-align: center;
-            padding: 20px;
-            background: #2c3e50;
+            padding: 30px;
+            background: var(--dark);
             color: white;
-            font-size: 0.9em;
         }
         
-        @media (max-width: 600px) {
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .footer-links a {
+            color: #d1d5db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        @media (max-width: 768px) {
             .header h1 {
-                font-size: 1.8em;
+                font-size: 2em;
             }
             
-            .bank-features {
+            .banks-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-types {
                 flex-direction: column;
-                gap: 10px;
+                align-items: center;
             }
             
-            .feature {
-                width: 100%;
-                text-align: center;
+            .tabs {
+                flex-direction: column;
             }
             
             .steps {
-                flex-direction: column;
-            }
-            
-            .bonus-badge {
-                position: relative;
-                top: 0;
-                right: 0;
-                margin-bottom: 15px;
-                display: inline-block;
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -254,90 +390,174 @@
 <body>
     <div class="container">
         <div class="header">
-            <div class="bonus-badge">🎁 1500₽ за регистрацию</div>
-            <h1>💰 Получи 1500₽ за регистрацию в банке</h1>
-            <p>Зарегистрируйтесь в любом банке и получите бонус на счет</p>
+            <div class="bonus-badge">
+                <i class="fas fa-gift"></i> 1500₽ за регистрацию
+            </div>
+            <h1>Получи 1500₽ за карту в банке</h1>
+            <p>Выберите кредитную или дебетовую карту и получите бонус на счет сразу после оформления</p>
+            
+            <div class="card-types">
+                <div class="card-type">
+                    <i class="fas fa-credit-card"></i> Кредитные карты
+                </div>
+                <div class="card-type">
+                    <i class="fas fa-money-bill-wave"></i> Дебетовые карты
+                </div>
+            </div>
         </div>
         
-        <div class="banks-list">
-            <!-- Тинькофф Банк -->
-            <div class="bank-card tinkoff">
-                <div class="bank-reward">+1500₽</div>
-                <div class="bank-header">
-                    <div class="bank-logo" style="background: #ffdd2d; color: black;">Т</div>
-                    <div class="bank-name">Тинькофф Банк</div>
-                </div>
-                <div class="bank-description">
-                    Откройте кредитную карту с кешбэком до 30% и получите 1500 рублей на счет после регистрации и оформления заявки.
-                </div>
-                <div class="bank-features">
-                    <div class="feature">🎁 1500₽ бонус</div>
-                    <div class="feature">🎯 До 30% кешбэка</div>
-                    <div class="feature">💳 0₽ за выпуск</div>
-                </div>
-                <button class="referral-button" onclick="redirectToBank('tinkoff')">
-                    Получить 1500₽ →
-                </button>
+        <div class="tabs">
+            <div class="tab active" onclick="switchTab('credit')">
+                <i class="fas fa-credit-card"></i> Кредитные карты
             </div>
-            
-            <!-- СберБанк -->
-            <div class="bank-card sber">
-                <div class="bank-reward">+1500₽</div>
-                <div class="bank-header">
-                    <div class="bank-logo" style="background: #21a038; color: white;">С</div>
-                    <div class="bank-name">СберБанк</div>
-                </div>
-                <div class="bank-description">
-                    Оформите дебетовую карту с повышенным кешбэком и получите 1500 рублей бонусом после успешной регистрации.
-                </div>
-                <div class="bank-features">
-                    <div class="feature">🎁 1500₽ бонус</div>
-                    <div class="feature">🏪 5% в кафе</div>
-                    <div class="feature">🛒 3% на АЗС</div>
-                </div>
-                <button class="referral-button" onclick="redirectToBank('sber')">
-                    Получить 1500₽ →
-                </button>
+            <div class="tab" onclick="switchTab('debit')">
+                <i class="fas fa-money-bill-wave"></i> Дебетовые карты
             </div>
-            
-            <!-- Альфа-Банк -->
-            <div class="bank-card alfa">
-                <div class="bank-reward">+1500₽</div>
-                <div class="bank-header">
-                    <div class="bank-logo" style="background: #ef3124; color: white;">А</div>
-                    <div class="bank-name">Альфа-Банк</div>
+        </div>
+        
+        <!-- Кредитные карты -->
+        <div class="tab-content active" id="credit-tab">
+            <div class="banks-grid">
+                <!-- Тинькофф Банк -->
+                <div class="bank-card">
+                    <div class="bank-reward">
+                        <i class="fas fa-gift"></i> +1500₽
+                    </div>
+                    <div class="bank-header">
+                        <div class="bank-logo" style="background: #ffdd2d; color: black;">Т</div>
+                        <div>
+                            <div class="bank-name">Тинькофф Платинум</div>
+                            <div class="bank-type">Кредитная карта</div>
+                        </div>
+                    </div>
+                    <div class="bank-description">
+                        Кредитная карта с кешбэком до 30% в выбранных категориях. Льготный период до 55 дней.
+                    </div>
+                    <div class="bank-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Кешбэк до 30% на всё</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Льготный период 55 дней</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Бесплатное обслуживание</span>
+                        </div>
+                    </div>
+                    <button class="referral-button" onclick="redirectToBank('tinkoff-credit')">
+                        <i class="fas fa-arrow-right"></i> Получить 1500₽
+                    </button>
                 </div>
-                <div class="bank-description">
-                    Станьте клиентом Альфа-Банка и получите 1500 рублей на счет после регистрации и оформления карты.
+                
+                <!-- Альфа-Банк -->
+                <div class="bank-card">
+                    <div class="bank-reward">
+                        <i class="fas fa-gift"></i> +1500₽
+                    </div>
+                    <div class="bank-header">
+                        <div class="bank-logo" style="background: #ef3124; color: white;">А</div>
+                        <div>
+                            <div class="bank-name">Альфа-Банк Кредитная</div>
+                            <div class="bank-type">Кредитная карта</div>
+                        </div>
+                    </div>
+                    <div class="bank-description">
+                        Премиальная кредитная карта с доступом в бизнес-залы аэропортов и страховкой для путешествий.
+                    </div>
+                    <div class="bank-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Доступ в LoungeKey</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Страховка для путешествий</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Кешбэк 10% на авиабилеты</span>
+                        </div>
+                    </div>
+                    <button class="referral-button" onclick="redirectToBank('alfa-credit')">
+                        <i class="fas fa-arrow-right"></i> Получить 1500₽
+                    </button>
                 </div>
-                <div class="bank-features">
-                    <div class="feature">🎁 1500₽ бонус</div>
-                    <div class="feature">✈️ Кешбэк 10%</div>
-                    <div class="feature">🏥 Страховка</div>
-                </div>
-                <button class="referral-button" onclick="redirectToBank('alfa')">
-                    Получить 1500₽ →
-                </button>
             </div>
-            
-            <!-- ВТБ -->
-            <div class="bank-card vtb">
-                <div class="bank-reward">+1500₽</div>
-                <div class="bank-header">
-                    <div class="bank-logo" style="background: #1946a0; color: white;">В</div>
-                    <div class="bank-name">ВТБ</div>
+        </div>
+        
+        <!-- Дебетовые карты -->
+        <div class="tab-content" id="debit-tab">
+            <div class="banks-grid">
+                <!-- СберБанк -->
+                <div class="bank-card">
+                    <div class="bank-reward">
+                        <i class="fas fa-gift"></i> +1500₽
+                    </div>
+                    <div class="bank-header">
+                        <div class="bank-logo" style="background: #21a038; color: white;">С</div>
+                        <div>
+                            <div class="bank-name">СберБанк Дебетовая</div>
+                            <div class="bank-type">Дебетовая карта</div>
+                        </div>
+                    </div>
+                    <div class="bank-description">
+                        Универсальная дебетовая карта с повышенным кешбэком в популярных категориях. Надежность и выгода.
+                    </div>
+                    <div class="bank-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>5% кешбэк в кафе</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>3% кешбэк на АЗС</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Бесплатное снятие наличных</span>
+                        </div>
+                    </div>
+                    <button class="referral-button secondary" onclick="redirectToBank('sber-debit')">
+                        <i class="fas fa-arrow-right"></i> Получить 1500₽
+                    </button>
                 </div>
-                <div class="bank-description">
-                    Зарегистрируйтесь в ВТБ и откройте карту чтобы получить 1500 рублей бонусных средств на свой счет.
+                
+                <!-- ВТБ -->
+                <div class="bank-card">
+                    <div class="bank-reward">
+                        <i class="fas fa-gift"></i> +1500₽
+                    </div>
+                    <div class="bank-header">
+                        <div class="bank-logo" style="background: #1946a0; color: white;">В</div>
+                        <div>
+                            <div class="bank-name">ВТБ Дебетовая</div>
+                            <div class="bank-type">Дебетовая карта</div>
+                        </div>
+                    </div>
+                    <div class="bank-description">
+                        Современная дебетовая карта для повседневных покупок с простыми условиями и надежной защитой.
+                    </div>
+                    <div class="bank-features">
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>5% кешбэк на всё</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Защита покупок</span>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Удобное мобильное приложение</span>
+                        </div>
+                    </div>
+                    <button class="referral-button secondary" onclick="redirectToBank('vtb-debit')">
+                        <i class="fas fa-arrow-right"></i> Получить 1500₽
+                    </button>
                 </div>
-                <div class="bank-features">
-                    <div class="feature">🎁 1500₽ бонус</div>
-                    <div class="feature">🛍️ 5% на всё</div>
-                    <div class="feature">🔒 Защита покупок</div>
-                </div>
-                <button class="referral-button" onclick="redirectToBank('vtb')">
-                    Получить 1500₽ →
-                </button>
             </div>
         </div>
         
@@ -346,56 +566,101 @@
             <div class="steps">
                 <div class="step">
                     <div class="step-number">1</div>
-                    <h3>Выберите банк</h3>
-                    <p>Нажмите на кнопку "Получить 1500₽" у любого банка</p>
+                    <h3>Выберите карту</h3>
+                    <p>Выберите кредитную или дебетовую карту из предложенных банков</p>
                 </div>
                 <div class="step">
                     <div class="step-number">2</div>
                     <h3>Зарегистрируйтесь</h3>
-                    <p>Заполните анкету на сайте банка</p>
+                    <p>Нажмите "Получить 1500₽" и заполните заявку на сайте банка</p>
                 </div>
                 <div class="step">
                     <div class="step-number">3</div>
+                    <h3>Активируйте карту</h3>
+                    <p>Получите и активируйте карту в отделении банка или через приложение</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
                     <h3>Получите бонус</h3>
-                    <p>1500 рублей будут начислены на ваш счет</p>
+                    <p>1500 рублей будут зачислены на ваш счет в течение 3-5 дней</p>
                 </div>
             </div>
         </div>
         
         <div class="footer">
-            <p>© 2024 Получи 1500₽ за регистрацию в банке</p>
-            <p style="margin-top: 5px; font-size: 0.8em; opacity: 0.7;">
+            <p>© 2024 Получи 1500₽ за карту в банке. Все права защищены.</p>
+            <div class="footer-links">
+                <a href="#">Политика конфиденциальности</a>
+                <a href="#">Условия использования</a>
+                <a href="#">Партнерская программа</a>
+            </div>
+            <p style="margin-top: 15px; font-size: 0.8em; opacity: 0.7;">
                 При переходе по ссылкам мы можем получать комиссию от банков-партнеров
             </p>
         </div>
     </div>
 
     <script>
+        function switchTab(tabType) {
+            // Скрыть все табы
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Убрать активный класс со всех кнопок табов
+            document.querySelectorAll('.tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Показать выбранный таб
+            document.getElementById(tabType + '-tab').classList.add('active');
+            
+            // Активировать выбранную кнопку таба
+            event.currentTarget.classList.add('active');
+        }
+        
         // ЗАМЕНИТЕ ЭТИ ССЫЛКИ НА ВАШИ РЕФЕРАЛЬНЫЕ ССЫЛКИ!
         const referralLinks = {
-            'tinkoff': 'https://www.tinkoff.ru/sl/your_referral_code_here',
-            'sber': 'https://www.sberbank.ru/your_referral_code_here',
-            'alfa': 'https://alfabank.ru/your_referral_code_here', 
-            'vtb': 'https://www.vtb.ru/your_referral_code_here'
+            'tinkoff-credit': 'https://www.tinkoff.ru/sl/your_credit_referral',
+            'alfa-credit': 'https://alfabank.ru/your_credit_referral',
+            'sber-debit': 'https://www.sberbank.ru/your_debit_referral',
+            'vtb-debit': 'https://www.vtb.ru/your_debit_referral'
         };
         
-        function redirectToBank(bankName) {
-            const link = referralLinks[bankName];
-            if (link && link.includes('your_referral_code')) {
-                alert('ВНИМАНИЕ: Замените ссылки в коде на ваши реферальные ссылки от банков!');
+        function redirectToBank(bankKey) {
+            const link = referralLinks[bankKey];
+            
+            if (link && link.includes('your_')) {
+                alert('ВНИМАНИЕ: Замените ссылки в коде на ваши реферальные ссылки от банков!\n\nСейчас сайт использует тестовые ссылки.');
+                // Для демонстрации - редирект на главную страницу банка
+                const demoLinks = {
+                    'tinkoff-credit': 'https://www.tinkoff.ru/credit-cards/',
+                    'alfa-credit': 'https://alfabank.ru/credit/credit-cards/',
+                    'sber-debit': 'https://www.sberbank.ru/ru/person/bank_cards/debit',
+                    'vtb-debit': 'https://www.vtb.ru/personal/bank-cards/debetovye/'
+                };
+                window.open(demoLinks[bankKey], '_blank');
                 return;
             }
             
             if (link) {
-                // Открываем в новом окне
                 window.open(link, '_blank');
-                
-                // Можно также использовать redirect в текущем окне:
-                // window.location.href = link;
             } else {
                 alert('Ссылка временно недоступна');
             }
         }
+        
+        // Анимация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            document.querySelector('.container').style.opacity = '0';
+            document.querySelector('.container').style.transform = 'translateY(20px)';
+            
+            setTimeout(() => {
+                document.querySelector('.container').style.transition = 'all 0.5s ease';
+                document.querySelector('.container').style.opacity = '1';
+                document.querySelector('.container').style.transform = 'translateY(0)';
+            }, 100);
+        });
     </script>
 </body>
 </html>
