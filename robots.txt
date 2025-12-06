@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Запрет на индексацию технических файлов GitHub Pages
+Disallow: /README.md
+Disallow: /LICENSE
+Disallow: /CNAME
+
+# Запрет на индексацию системных директорий
+Disallow: /assets/
+Disallow: /img/
+Disallow: /images/
+Disallow: /static/
+
+# Карта сайта (если сделаешь)
+Sitemap: https://socialworkstore.github.io/sitemap.xml
